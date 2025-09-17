@@ -1,3 +1,4 @@
+import { SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs';
 import {
   ArrowRight,
   BookOpen,
@@ -8,6 +9,7 @@ import {
   Users,
   Wine,
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -31,10 +33,22 @@ export default function Home() {
               hosting parties with custom menus your guests can order from.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
-                Get Started
-                <ArrowRight className="h-5 w-5" />
-              </button>
+              <SignedOut>
+                <SignUpButton mode="modal">
+                  <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                    Get Started
+                    <ArrowRight className="h-5 w-5" />
+                  </button>
+                </SignUpButton>
+              </SignedOut>
+              <SignedIn>
+                <Link href="/dashboard">
+                  <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+                    View My Library
+                    <ArrowRight className="h-5 w-5" />
+                  </button>
+                </Link>
+              </SignedIn>
               <button className="border border-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent transition-colors">
                 View Demo
               </button>
@@ -223,9 +237,18 @@ export default function Home() {
             Home Drinks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors">
-              Start Building Your Library
-            </button>
+            <SignedOut>
+              <SignUpButton mode="modal">
+                <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors">
+                  Start Building Your Library
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors">
+                Go to My Library
+              </button>
+            </SignedIn>
             <button className="border border-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent transition-colors">
               Learn More
             </button>
