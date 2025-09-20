@@ -1,4 +1,5 @@
 import { UserButton } from '@clerk/nextjs';
+import Link from 'next/link';
 
 export default function Dashboard() {
   return (
@@ -10,10 +11,12 @@ export default function Dashboard() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-card p-6 rounded-lg border border-border">
-            <h2 className="text-xl font-semibold mb-2">My Drinks</h2>
-            <p className="text-muted-foreground">0 drinks in your library</p>
-          </div>
+          <Link href="/drinks">
+            <div className="bg-card p-6 rounded-lg border border-border">
+              <h2 className="text-xl font-semibold mb-2">My Drinks</h2>
+              <p className="text-muted-foreground">0 drinks in your library</p>
+            </div>
+          </Link>
 
           <div className="bg-card p-6 rounded-lg border border-border">
             <h2 className="text-xl font-semibold mb-2">Recent Activity</h2>
