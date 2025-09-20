@@ -1,4 +1,5 @@
 import Header from '@/components/ui/header';
+import Providers from '@/lib/providers';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -31,9 +32,10 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header />
-
-          <div className="container px-4 sm:mx-auto mt-8">{children}</div>
+          <Providers>
+            <Header />
+            <div className="container px-4 sm:mx-auto mt-8">{children}</div>
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
