@@ -1,5 +1,5 @@
 import fetchDrinks from '@/services/fetchDrinks';
-import DrinkCard from './components/drink-card';
+import DrinkCard from '../../components/drinks/drink-card';
 
 const Drinks = async () => {
   const { data: drinks } = await fetchDrinks();
