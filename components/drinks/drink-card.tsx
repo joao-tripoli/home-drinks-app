@@ -20,9 +20,9 @@ const DrinkCard = ({ drink, onUpdate }: Props) => {
 
   return (
     <>
-      <div className="rounded-md border p-4 bg-card flex flex-col gap-2">
+      <div className="rounded-md border hover:border-primary/75 p-4 bg-card flex flex-col gap-2 transition-all duration-300">
         <div className="flex justify-between items-start">
-          <h2 className="text-xl font-bold">{drink.name}</h2>
+          <h2 className="text-xl text-primary font-bold">{drink.name}</h2>
 
           <Button
             variant="outline"

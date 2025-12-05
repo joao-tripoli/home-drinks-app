@@ -2,10 +2,11 @@ import Header from '@/components/ui/header';
 import Providers from '@/lib/providers';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
 import './globals.css';
 
-const montserrat = Montserrat({
+const playfairDisplay = Playfair_Display({
+  variable: '--font-playfair-display',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
@@ -23,8 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${montserrat.className} dark`}>
-        <body className="antialiased">
+      <html lang="en" className="dark">
+        <body className={`${playfairDisplay.variable} antialiased`}>
           <Providers>
             <Header />
             <div className="container px-4 sm:mx-auto mt-8">{children}</div>
